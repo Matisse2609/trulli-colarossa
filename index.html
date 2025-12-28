@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trulli Colarossa – Authentic Trulli Stay in Alberobello</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96.png">
+
+<!-- Android / PWA -->
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/favicon-512.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --olive: #6A7F4F;            /* Olive Green */
+      --beige: #D7CEBB;            /* Limestone Beige */
+      --soft-white: #F7F7F3;       /* Soft White */
+      --forest: #2F3A26;           /* Dark Forest Green */
+      --text-main: #31352F;
+      --text-muted: #6b6d66;
+      --accent: #B68A4A;           /* warm golden accent */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--soft-white);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+   
+
+    /* HERO SECTION – big slideshow */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 1s ease-in-out;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(47, 58, 38, 0.9),
+        rgba(47, 58, 38, 0.55),
+        rgba(47, 58, 38, 0.08)
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 540px;
+      padding: 4rem 0 4.5rem;
+      margin-left: max(4vw, 3rem);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(215, 206, 187, 0.18);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      margin-top: 1.1rem;
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-size: clamp(2.2rem, 3.3vw + 1.2rem, 3.4rem);
+      line-height: 1.15;
+    }
+
+    .hero h1 span {
+      color: var(--beige);
+    }
+
+    .hero-text {
+      margin-top: 1rem;
+      font-size: 0.98rem;
+      max-width: 32rem;
+      color: rgba(248, 248, 244, 0.92);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(248, 248, 244, 0.85);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--beige);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .btn-primary {
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--beige);
+      color: var(--forest);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: #e2d8c4;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-ghost {
+      padding: 0.85rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(247, 247, 243, 0.7);
+      background: transparent;
+      color: #f7f7f3;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(247, 247, 243, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .hero-badge-row {
+      margin-top: 1.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.8rem;
+      color: rgba(247, 247, 243, 0.85);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(247, 247, 243, 0.08);
+      border: 1px solid rgba(215, 206, 187, 0.25);
+    }
+
+    .hero-badge-icon {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 88vh;
+        align-items: flex-end;
+      }
+
+      .hero-content {
+        margin-left: auto;
+        margin-right: auto;
+        padding-inline: 1.5rem;
+        padding-bottom: 3.2rem;
+      }
+    }
+
+    /* INTRO SECTION */
+    .intro {
+      padding: 3.8rem 0 3rem;
+      background: linear-gradient(
+        180deg,
+        rgba(215, 206, 187, 0.22),
+        rgba(247, 247, 243, 0.9)
+      );
+      border-bottom: 1px solid rgba(215, 206, 187, 0.6);
+    }
+
+    .intro-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .intro-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.78rem;
+      color: var(--olive);
+      margin-bottom: 0.4rem;
+    }
+
+    .intro h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.9rem;
+      margin-bottom: 0.8rem;
+      color: var(--forest);
+    }
+
+    .intro p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+    }
+
+    .intro-highlight {
+      margin-top: 1rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 1rem;
+      background: rgba(106, 127, 79, 0.06);
+      font-size: 0.9rem;
+    }
+
+    .intro-highlight strong {
+      color: var(--forest);
+    }
+
+    .intro-quick {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .intro-pill {
+      padding: 0.75rem 0.9rem;
+      border-radius: 0.9rem;
+      background: #fff;
+      border: 1px solid rgba(106, 127, 79, 0.18);
+    }
+
+    .intro-pill span {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--olive);
+      margin-bottom: 0.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .intro-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .intro {
+        padding-top: 3.2rem;
+      }
+    }
+
+    /* OUR TRULLI CARDS */
+    .section-heading {
+      text-align: center;
+      padding: 3.2rem 0 0.6rem;
+    }
+
+    .section-heading h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.9rem;
+      color: var(--forest);
+    }
+
+    .section-heading p {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .trulli-grid {
+      padding: 1.8rem 0 3.2rem;
+    }
+
+    .trulli-grid-inner {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 860px) {
+      .trulli-grid-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .trullo-card {
+      background: #fff;
+      border-radius: 1.4rem;
+      overflow: hidden;
+      border: 1px solid rgba(106, 127, 79, 0.16);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .trullo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.12);
+      border-color: rgba(106, 127, 79, 0.3);
+    }
+
+    .trullo-img-wrap {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .trullo-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.4s ease;
+    }
+
+    .trullo-card:hover .trullo-img-wrap img {
+      transform: scale(1.07);
+    }
+
+    .trullo-tag {
+      position: absolute;
+      bottom: 0.9rem;
+      left: 0.9rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(47, 58, 38, 0.82);
+      color: #f7f7f3;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .trullo-body {
+      padding: 1.35rem 1.35rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .trullo-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.7rem;
+      align-items: baseline;
+    }
+
+    .trullo-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      color: var(--forest);
+    }
+
+    .trullo-people {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .trullo-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .trullo-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .trullo-meta-pill {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(215, 206, 187, 0.35);
+    }
+
+    .trullo-footer {
+      margin-top: 0.3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .trullo-link {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+      color: var(--olive);
+    }
+
+    .trullo-link span {
+      display: inline-block;
+      transform: translateX(0);
+      transition: transform 0.18s ease;
+    }
+
+    .trullo-card:hover .trullo-link span {
+      transform: translateX(3px);
+    }
+
+    /* EXPERIENCE SECTION */
+    .experience {
+      padding: 3.5rem 0;
+      background: radial-gradient(circle at top left, rgba(215,206,187,0.45), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(106,127,79,0.1), transparent 55%);
+    }
+
+    .experience-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .experience h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.7rem;
+      color: var(--forest);
+    }
+
+    .experience p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .experience ul {
+      list-style: none;
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .experience ul li::before {
+      content: "•";
+      color: var(--olive);
+      margin-right: 0.4rem;
+    }
+
+    .experience-card {
+      border-radius: 1.4rem;
+      overflow: hidden;
+      border: 1px solid rgba(47, 58, 38, 0.18);
+      background: #fff;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .experience-img {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .experience-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform 0.45s ease;
+    }
+
+    .experience-card:hover .experience-img img {
+      transform: scale(1.08);
+    }
+
+    .experience-caption {
+      padding: 1.1rem 1.3rem 1.2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .experience-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* TRUST / PARTNERS SECTION */
+    .trust {
+      padding: 3.2rem 0 3.6rem;
+      background: var(--forest);
+      color: #f7f7f3;
+    }
+
+    .trust-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .trust h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+    }
+
+    .trust p {
+      font-size: 0.9rem;
+      max-width: 30rem;
+      color: rgba(247,247,243,0.85);
+    }
+
+    .trust-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.2rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .trust-logo-card {
+      padding: 0.9rem 1.2rem;
+      border-radius: 1rem;
+      background: rgba(247, 247, 243, 0.04);
+      border: 1px solid rgba(247, 247, 243, 0.12);
+      min-width: 170px;
+    }
+
+    .trust-logo-card img {
+      max-height: 42px;
+      margin: 0 auto 0.4rem;
+      object-fit: contain;
+      filter: brightness(1.02);
+    }
+
+    .trust-logo-card small {
+      font-size: 0.78rem;
+      color: rgba(247,247,243,0.7);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.4rem 0 2rem;
+      background: #1f2619;
+      color: #eaeae2;
+      font-size: 0.86rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2rem;
+    }
+
+    .footer-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-address p {
+      margin-bottom: 0.2rem;
+      color: rgba(234,234,226,0.9);
+    }
+
+    .footer-address a {
+      color: #fff;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .footer-links a {
+      color: rgba(234,234,226,0.9);
+      font-size: 0.86rem;
+    }
+
+    .footer-bottom {
+      margin-top: 1.8rem;
+      border-top: 1px solid rgba(234,234,226,0.2);
+      padding-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: rgba(234,234,226,0.75);
+    }
+
+    @media (max-width: 800px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="page page-ready">
+  <!-- HEADER -->
+ <header id="top">
+  <div class="container header-inner">
+
+    <!-- LOGO -->
+    <a href="index.html" class="logo-wrap" aria-label="Trulli Colarossa Home">
+      <img
+        src="assets/logo.png"
+        alt="Trulli Colarossa"
+        class="brand-logo"
+        loading="eager"
+      >
+    </a>
+
+    <!-- NAVIGATION -->
+<nav class="main-nav">
+  <button class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="Toggle menu"
+          aria-controls="navList"
+          aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-list" id="navList">
+    <li><a href="our-trulli.html">Our Trulli</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="conditions.html">Conditions</a></li>
+    <li><a href="contacts.html">Contacts</a></li>
+  </ul>
+</nav>
+
+
+    <!-- CTA -->
+    <a class="header-cta"
+       href="https://qualitravel.com/trulli-colarossa/"
+       target="_blank"
+       rel="noopener">
+      Book your stay
+    </a>
+
+  </div>
+</header>
+
+
+  <!-- HERO / SLIDESHOW -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Authentic trulli stays since the 1700s
+      </div>
+
+      <h1>
+        Slow down and unwind in an
+        <span>authentic trullo</span>
+        in the hills of Alberobello
+      </h1>
+
+      <p class="hero-text">
+        Trulli Colarossa is a collection of four independent, lovingly restored trulli,
+        surrounded by olive trees and countryside — just 1.5 km from the historic centre
+        of Alberobello.
+      </p>
+
+      <div class="hero-meta">
+        <span><span class="hero-meta-dot"></span> 4 independent trulli</span>
+        <span><span class="hero-meta-dot"></span> Pool &amp; jacuzzi</span>
+        <span><span class="hero-meta-dot"></span> Quiet countryside location</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="our-trulli.html" class="btn-primary">Discover our trulli</a>
+        <a href="https://qualitravel.com/trulli-colarossa/" target="_blank" rel="noopener" class="btn-ghost">
+          Check availability
+        </a>
+      </div>
+
+      <div class="hero-badge-row">
+        <div class="hero-badge">
+          <span class="hero-badge-icon">★</span>
+          Rated 9.9 · Recognised for excellence
+        </div>
+        <div class="hero-badge">
+          <span class="hero-badge-icon"></span>
+          Ideal for couples, families &amp; friends
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="container intro-inner">
+      <div>
+        <div class="intro-eyebrow">Welcome to Trulli Colarossa</div>
+        <h2>An authentic trulli story</h2>
+        <p>
+          From the love for our land and the passion for hospitality, Trulli Colarossa was born.
+          The property is made up of four authentic, independent mansions, fully equipped
+          to satisfy every guest.
+        </p>
+        <p>
+          Just 1.5 km from the centre of Alberobello, the trulli sit in a completely private
+          and quiet location, while still being close to the historic centre, supermarkets
+          and restaurants.
+        </p>
+        <div class="intro-highlight">
+          <strong>Perfect for slow travel:</strong> wake up to birdsong, enjoy breakfast outdoors,
+          spend the day exploring Puglia and return to your own peaceful trullo at night.
+        </div>
+      </div>
+      <div class="intro-quick">
+        <div class="intro-pill">
+          <span>Location</span>
+          Contrada Colarossa 6 · Alberobello<br>
+          1.5 km from the historic centre
+        </div>
+        <div class="intro-pill">
+          <span>Comfort</span>
+          Pool, jacuzzi, Wi-Fi, private verandas, family-friendly spaces
+        </div>
+        <div class="intro-pill">
+          <span>Stay types</span>
+          From cosy suites for couples to spacious trulli for families and friends
+        </div>
+        <div class="intro-pill">
+          <span>Atmosphere</span>
+          Quiet, rural surroundings with easy access to Puglian towns and coastline
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- LUXURY GALLERY (CINEMATIC + THUMB STRIP ONLY) -->
+<section class="lux-gallery" id="gallery">
+  <div class="container">
+    <div class="lux-head reveal">
+      <div class="lux-eyebrow">Trulli Colarossa</div>
+      <h2>Gallery</h2>
+      <p>A glimpse of the estate: trulli exteriors, pools, and the Puglian atmosphere.</p>
+    </div>
+
+    <!-- Cinematic hero slider -->
+    <div class="lux-hero reveal" aria-label="Gallery slider">
+      <div class="lux-hero-media">
+        <img id="luxHeroImg" alt="Trulli Colarossa gallery image" loading="eager">
+        <div class="lux-hero-vignette" aria-hidden="true"></div>
+      </div>
+
+      <div class="lux-hero-ui">
+        <div class="lux-hero-left">
+<span class="lux-kicker"></span>
+          <span class="lux-counter" id="luxCounter">01 / 23</span>
+        </div>
+
+        <div class="lux-hero-right">
+          <button class="lux-btn" id="luxPrev" type="button" aria-label="Previous photo">Prev</button>
+          <button class="lux-btn" id="luxNext" type="button" aria-label="Next photo">Next</button>
+          <button class="lux-btn lux-btn--ghost" id="luxOpen" type="button" aria-label="Open in fullscreen">Fullscreen</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thumbnail rail (all images) -->
+    <div class="lux-rail reveal" aria-label="Gallery thumbnails">
+      <div class="lux-rail-track" id="luxRailTrack"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lux-lightbox" id="luxLightbox" aria-hidden="true">
+    <button class="lux-lightbox-close" id="luxLightboxClose" type="button" aria-label="Close">×</button>
+    <img class="lux-lightbox-img" id="luxLightboxImg" alt="">
+  </div>
+</section>
+
+
+  <!-- THE COMPLEX / EXPERIENCE -->
+  <section class="experience">
+    <div class="container experience-inner">
+      <div>
+        <h2>The complex &amp; surroundings</h2>
+        <p>
+          Trulli Colarossa is an ancient, authentic trulli structure built in the late 1700s.
+          Over time, the original peasants’ shelters have evolved into a small collection of
+          dwellings, carefully restored with local stone and traditional techniques.
+        </p>
+        <p>
+          Today, the estate includes 15 trulli cones divided into four residences of different
+          sizes and features, each completely independent. Outdoor areas are designed so every
+          guest enjoys both privacy and plenty of space to relax.
+        </p>
+        <ul>
+          <li>Quiet countryside walks and cycling paths among trulli and orchards</li>
+          <li>Easy access to restaurants and local “masserie” for food &amp; wine experiences</li>
+          <li>Ideal base for exploring Alberobello and the wider Puglia region</li>
+        </ul>
+      </div>
+      <div class="experience-card">
+        <div class="experience-img">
+          <img src="https://www.trullicolarossa.it/images/slide-complesso/1.jpg" alt="Trulli Colarossa complex and pool">
+        </div>
+        <div class="experience-caption">
+          Morning light over the pool and trulli domes at Trulli Colarossa
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST & PARTNERS -->
+  <section class="trust">
+    <div class="container trust-inner">
+      <div>
+        <h2>Trusted by guests &amp; partners</h2>
+        <p>
+          Trulli Colarossa has been recognised for excellence and is featured on
+          trusted travel platforms and local partners.
+        </p>
+      </div>
+      <div class="trust-logos">
+        <a class="trust-logo-card" href="https://www.tripadvisor.com/Hotel_Review-g580227-d3396339-Reviews-Trulli_Colarossa-Alberobello_Province_of_Bari_Puglia.html" target="_blank" rel="noopener">
+          <img src="https://www.trullicolarossa.it/images/trip-en.jpg" alt="Tripadvisor">
+          <small>Read guest reviews on Tripadvisor</small>
+        </a>
+        <a class="trust-logo-card" href="https://qualitravel.com" target="_blank" rel="noopener">
+          <img src="https://www.trullicolarossa.it/images/logoqt.png" alt="Qualitravel">
+          <small>Book securely via Qualitravel</small>
+        </a>
+        <a class="trust-logo-card" href="http://www.hotelscombined.com" target="_blank" rel="noopener">
+          <span style="display:inline-block;font-weight:600;margin-bottom:0.3rem;">HotelsCombined</span>
+          <small>Recognition of Excellence award</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-title">Trulli Colarossa</div>
+          <div class="footer-address">
+            <p>Contrada Colarossa 6</p>
+            <p>Alberobello, BA 70011 · Italy</p>
+            <p>Phone: +39 339 540 4581 · Mobile: +39 324 883 9699</p>
+            <p>Email: <a href="mailto:info@trullicolarossa.it">info@trullicolarossa.it</a></p>
+            <p style="margin-top:0.4rem;">
+              Alternatively, visit our new site with online booking:<br>
+              <a href="https://qualitravel.com/trulli-colarossa/" target="_blank" rel="noopener">
+                https://qualitravel.com/trulli-colarossa/
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <strong>Useful links</strong>
+          <a href="our-trulli.html">Our Trulli</a>
+          <a href="services.html">Services</a>
+          <a href="conditions.html">Conditions</a>
+          <a href="contacts.html">Contacts</a>
+          <a href="https://www.tripadvisor.com/Hotel_Review-g580227-d3396339-Reviews-Trulli_Colarossa-Alberobello_Province_of_Bari_Puglia.html" target="_blank" rel="noopener">
+            Read reviews on Tripadvisor
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2025 Trulli Colarossa · All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+<!-- SIMPLE JS: hero slideshow + mobile nav + header scroll -->
+<script>
+  /* HERO BACKGROUND SLIDESHOW */
+  const heroSection = document.querySelector('.hero');
+  const heroImages = [
+    "https://www.trullicolarossa.it/images/night.jpg",
+    "https://www.trullicolarossa.it/images/carousel/6333aa.jpg",
+    "https://www.trullicolarossa.it/images/carousel/6302cc.jpg",
+    "https://www.trullicolarossa.it/images/carousel/slide-c.jpg",
+    "https://www.trullicolarossa.it/images/carousel/slide-pool.jpg"
+  ];
+
+  let heroIndex = 0;
+
+  function updateHeroBackground() {
+    if (!heroSection) return;
+    heroSection.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
+    heroIndex = (heroIndex + 1) % heroImages.length;
+  }
+
+  updateHeroBackground();
+  setInterval(updateHeroBackground, 5000);
+</script>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

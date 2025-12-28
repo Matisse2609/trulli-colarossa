@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking Conditions – Trulli Colarossa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Booking conditions for Trulli Colarossa: check-in and check-out times, booking terms, cancellation policy and payment methods.">
+
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96.png">
+
+<!-- Android / PWA -->
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/favicon-512.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --olive: #6A7F4F;
+      --beige: #D7CEBB;
+      --soft-white: #F7F7F3;
+      --forest: #2F3A26;
+      --text-main: #31352F;
+      --text-muted: #6b6d66;
+      --accent: #B68A4A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--soft-white);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 55vh;
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+      background-image: url("https://www.trullicolarossa.it/images/night.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(47, 58, 38, 0.9),
+        rgba(47, 58, 38, 0.55),
+        rgba(47, 58, 38, 0.18)
+      );
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 0 3.5rem;
+      margin-left: max(4vw, 3rem);
+      max-width: 640px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(215, 206, 187, 0.18);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      margin-top: 1.1rem;
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-size: clamp(2.1rem, 3vw + 1.2rem, 3.1rem);
+      line-height: 1.15;
+    }
+
+    .hero h1 span {
+      color: var(--beige);
+    }
+
+    .hero-lead {
+      margin-top: 0.9rem;
+      font-size: 0.98rem;
+      color: rgba(248, 248, 244, 0.92);
+      max-width: 32rem;
+    }
+
+    .hero-meta {
+      margin-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3rem;
+      font-size: 0.84rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(248, 248, 244, 0.85);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--beige);
+    }
+
+    .hero-actions {
+      margin-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn-ghost-light {
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(247,247,243,0.7);
+      background: transparent;
+      color: #f7f7f3;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ghost-light:hover {
+      background: rgba(247,247,243,0.08);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 60vh;
+        align-items: flex-end;
+      }
+
+      .hero-inner {
+        margin-left: auto;
+        margin-right: auto;
+        padding-inline: 1.5rem;
+        padding-bottom: 3rem;
+      }
+    }
+
+    /* PAGE MAIN */
+    .page-main {
+      padding: 3rem 0 3.6rem;
+      background: linear-gradient(
+        180deg,
+        rgba(215, 206, 187, 0.18),
+        rgba(247, 247, 243, 1)
+      );
+    }
+
+    .breadcrumbs {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .breadcrumbs a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.9rem;
+      color: var(--forest);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-lead {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      margin-bottom: 2rem;
+    }
+
+    /* LAYOUT */
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .pill {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(215, 206, 187, 0.6);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--forest);
+    }
+
+    /* BLOCKS */
+    .conditions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    @media (max-width: 720px) {
+      .conditions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .conditions-card,
+    .category-block {
+      background: #fff;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(106,127,79,0.16);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.06);
+      padding: 1.2rem 1.25rem 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .conditions-card h3,
+    .category-block h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .conditions-card p,
+    .category-block p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .category-block ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .category-block ul li {
+      margin-bottom: 0.25rem;
+      padding-left: 0.9rem;
+      position: relative;
+      color: var(--text-muted);
+    }
+
+    .category-block ul li::before {
+      content: "•";
+      color: var(--olive);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .highlight-callout {
+      margin-top: 1.5rem;
+      padding: 1rem 1.15rem;
+      border-radius: 1.1rem;
+      border: 1px dashed rgba(106,127,79,0.4);
+      background: rgba(247, 247, 243, 0.9);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .highlight-callout strong {
+      color: var(--forest);
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(215, 206, 187, 0.55);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--forest);
+      margin-bottom: 0.7rem;
+    }
+
+    .steps-list {
+      list-style: none;
+      margin-top: 0.3rem;
+      padding-left: 0;
+      font-size: 0.9rem;
+    }
+
+    .steps-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.6rem;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .step-number {
+      width: 1.3rem;
+      height: 1.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(106,127,79,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--forest);
+      background: rgba(215, 206, 187, 0.4);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.4rem 0 2rem;
+      background: #1f2619;
+      color: #eaeae2;
+      font-size: 0.86rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2rem;
+    }
+
+    .footer-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-address p {
+      margin-bottom: 0.2rem;
+      color: rgba(234,234,226,0.9);
+    }
+
+    .footer-address a {
+      color: #fff;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .footer-links a {
+      color: rgba(234,234,226,0.9);
+      font-size: 0.86rem;
+    }
+
+    .footer-bottom {
+      margin-top: 1.8rem;
+      border-top: 1px solid rgba(234,234,226,0.2);
+      padding-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: rgba(234,234,226,0.75);
+    }
+
+    @media (max-width: 800px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 58px;
+    transform: none;
+  }
+
+  .header-inner {
+    height: auto;
+      }
+    }
+  </style>
+</head>
+<body class="page">
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+<a class="logo-wrap" href="index.html" aria-label="Trulli Colarossa Home">
+<img class="brand-logo" src="assets/logo.png" alt="Trulli Colarossa">
+  <span class="sr-only">Trulli Colarossa</span>
+</a>
+
+<nav class="main-nav">
+        <div class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </div>
+        <ul id="navList">
+          <li><a href="index.html#top">Home</a></li>
+          <li><a href="our-trulli.html">Our Trulli</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="conditions.html" class="active">Conditions</a></li>
+          <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+      </nav>
+
+      <a class="header-cta" href="https://qualitravel.com/trulli-colarossa/" target="_blank" rel="noopener">
+        Book your stay
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Booking information
+      </div>
+
+      <h1>
+        Booking <span>conditions</span>
+      </h1>
+
+      <p class="hero-lead">
+        Here you can find our standard check-in and check-out times, booking terms, cancellation
+        policy and accepted payment methods. This way, you can plan your stay with peace of mind.
+      </p>
+
+      <div class="hero-meta">
+        <span><span class="hero-meta-dot"></span> Clear &amp; transparent</span>
+        <span><span class="hero-meta-dot"></span> Flexible on request</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn-ghost-light" href="https://qualitravel.com/trulli-colarossa/" target="_blank" rel="noopener">
+          View live availability
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-main">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html#top">Home</a> · Conditions
+      </div>
+
+      <div class="section-eyebrow">Before you arrive</div>
+      <h2 class="section-title">How your booking works</h2>
+      <p class="section-lead">
+        We like to keep things simple and transparent. Below you will find the key information
+        about check-in and check-out, deposits, cancellation terms and payment methods.
+      </p>
+
+      <!-- TOP LAYOUT -->
+      <section class="two-column">
+        <div>
+          <div class="pill-row">
+            <span class="pill">Check-in from 14:00</span>
+            <span class="pill">Check-out until 10:30</span>
+            <span class="pill">25% deposit</span>
+          </div>
+
+          <div class="conditions-grid">
+            <div class="conditions-card">
+              <h3>Check-in &amp; check-out</h3>
+              <p><strong>Check-in:</strong> from 14:00 to 20:00</p>
+              <p><strong>Check-out:</strong> until 10:30</p>
+              <p style="margin-top:0.5rem;">
+                Check-in and check-out at other times are available upon request and may require an extra charge.
+              </p>
+            </div>
+
+            <div class="conditions-card">
+              <h3>Booking &amp; deposit</h3>
+              <p>
+                To secure your reservation a deposit equal to <strong>25% of the total cost</strong> of the booking
+                is required, and in any case not less than <strong>100,00 EUR</strong>.
+              </p>
+              <p style="margin-top:0.5rem;">
+                The remaining balance is paid on arrival in cash or by credit card. At the time of booking
+                you may be asked to provide a valid credit card.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-callout">
+            <strong>Early/late arrivals:</strong> if you expect to arrive outside normal hours, please let us know in
+            advance. We will do our best to accommodate your request, depending on availability, and inform you
+            of any possible surcharge.
+          </div>
+        </div>
+
+        <!-- Right column: visual "steps" explanation -->
+        <div>
+          <span class="badge-soft">At a glance</span>
+          <h3 class="section-title" style="font-size:1.45rem; margin-bottom:0.6rem;">
+            Your booking in 3 simple steps
+          </h3>
+          <ul class="steps-list">
+            <li>
+              <div class="step-number">1</div>
+              <div>
+                Choose your preferred trullo and dates via email, phone or through our partner
+                booking platform.
+              </div>
+            </li>
+            <li>
+              <div class="step-number">2</div>
+              <div>
+                Pay the deposit (25% of the total cost, minimum 100,00 EUR) to confirm the reservation.
+              </div>
+            </li>
+            <li>
+              <div class="step-number">3</div>
+              <div>
+                Settle the remaining balance on arrival at Trulli Colarossa by cash or accepted
+                payment methods.
+              </div>
+            </li>
+          </ul>
+
+          <div class="highlight-callout" style="margin-top:1rem;">
+            <strong>Need help?</strong> If you have special requests (longer stays, group bookings, or
+            particular arrival times), you can always contact us directly. We are happy to discuss the
+            most suitable arrangement for your stay.
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM SECTION: CANCELLATION + PAYMENT -->
+      <section class="two-column" style="margin-bottom:0;">
+        <div>
+          <div class="section-eyebrow">Cancellations</div>
+          <h2 class="section-title" style="font-size:1.45rem; margin-bottom:0.8rem;">
+            Cancellation terms
+          </h2>
+
+          <div class="category-block">
+            <h3>Standard policy</h3>
+            <p>
+              The customer pays a penalty of <strong>25% of the total price</strong> (equal to the deposit
+              required at the time of booking) if cancelling after reservation.
+            </p>
+            <p style="margin-top:0.5rem;">
+              In case of cancellation within <strong>14 days prior to arrival</strong>, the customer pays the
+              total amount of the stay.
+            </p>
+          </div>
+
+          <div class="highlight-callout">
+            <strong>Travel insurance:</strong> to protect yourself from unexpected changes, we recommend
+            that you consider a travel insurance that covers cancellations and unforeseen events.
+          </div>
+        </div>
+
+        <div>
+          <div class="section-eyebrow">Payments</div>
+          <h2 class="section-title" style="font-size:1.45rem; margin-bottom:0.8rem;">
+            Accepted payment methods
+          </h2>
+
+          <div class="category-block">
+            <h3>On site</h3>
+            <ul>
+              <li>Cash</li>
+              <li>Credit cards (MasterCard – Visa – Maestro)</li>
+            </ul>
+          </div>
+
+          <div class="category-block">
+            <h3>Remote payments</h3>
+            <ul>
+              <li>Bank transfer</li>
+              <li>PayPal</li>
+            </ul>
+          </div>
+
+          
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-title">Trulli Colarossa</div>
+          <div class="footer-address">
+            <p>Contrada Colarossa 6</p>
+            <p>Alberobello, BA 70011 · Italy</p>
+            <p>Phone: +39 339 540 4581 · Mobile: +39 324 883 9699</p>
+            <p>Email: <a href="mailto:info@trullicolarossa.it">info@trullicolarossa.it</a></p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <strong>Useful links</strong>
+          <a href="our-trulli.html">Our Trulli</a>
+          <a href="services.html">Services</a>
+          <a href="conditions.html">Conditions</a>
+          <a href="contacts.html">Contacts</a>
+          <a href="https://www.tripadvisor.com/Hotel_Review-g580227-d3396339-Reviews-Trulli_Colarossa-Alberobello_Province_of_Bari_Puglia.html" target="_blank" rel="noopener">
+            Read reviews on Tripadvisor
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2025 Trulli Colarossa · All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

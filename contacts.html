@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacts – Trulli Colarossa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact details, map and enquiry form for Trulli Colarossa in Alberobello, Puglia.">
+
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96.png">
+
+<!-- Android / PWA -->
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/favicon-512.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --olive: #6A7F4F;            /* Olive Green */
+      --beige: #D7CEBB;            /* Limestone Beige */
+      --soft-white: #F7F7F3;       /* Soft White */
+      --forest: #2F3A26;           /* Dark Forest Green */
+      --text-main: #31352F;
+      --text-muted: #6b6d66;
+      --accent: #B68A4A;           /* warm golden accent */
+      --error: #b84a4a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--soft-white);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    /* HEADER (same style as homepage) */
+
+    /* HERO */
+    .page-hero {
+      padding: 3.4rem 0 2.8rem;
+      background: radial-gradient(circle at top left, rgba(215,206,187,0.45), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(106,127,79,0.16), transparent 55%);
+      border-bottom: 1px solid rgba(215, 206, 187, 0.6);
+    }
+
+    .page-hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .page-hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.1rem;
+      color: var(--forest);
+      margin-bottom: 0.7rem;
+    }
+
+    .page-hero p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(247, 247, 243, 0.9);
+      border: 1px solid rgba(106,127,79,0.25);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--olive);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-highlight-card {
+      background: #fff;
+      border-radius: 1.3rem;
+      padding: 1.2rem 1.4rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(215, 206, 187, 0.75);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .hero-highlight-card strong {
+      color: var(--forest);
+    }
+
+    @media (max-width: 900px) {
+      .page-hero-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CONTACT LAYOUT */
+    .contact-main {
+      padding: 3.2rem 0 3.5rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 2.6rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.78rem;
+      color: var(--olive);
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.55rem;
+      color: var(--forest);
+      margin-bottom: 0.7rem;
+    }
+
+    .section-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+
+    .contact-card {
+      background: #fff;
+      border-radius: 1.1rem;
+      padding: 0.95rem 1.1rem;
+      border: 1px solid rgba(106,127,79,0.18);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.03);
+      font-size: 0.9rem;
+    }
+
+    .contact-card strong {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--olive);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-card p {
+      color: var(--text-main);
+    }
+
+    .contact-card a {
+      color: var(--forest);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .contact-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .contact-inline span {
+      white-space: nowrap;
+    }
+
+    .contact-note {
+      margin-top: 0.7rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--olive);
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      color: var(--forest);
+    }
+
+    .btn-outline span {
+      display: inline-block;
+      transform: translateX(0);
+      transition: transform 0.18s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--olive);
+      color: #fff;
+    }
+
+    .btn-outline:hover span {
+      transform: translateX(3px);
+    }
+
+    /* MAP & HOW TO REACH US */
+    .map-card {
+      background: #fff;
+      border-radius: 1.4rem;
+      overflow: hidden;
+      border: 1px solid rgba(106,127,79,0.25);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .map-frame-wrap {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .map-frame-wrap iframe {
+      border: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-caption {
+      padding: 1rem 1.2rem 1.1rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .map-caption strong {
+      color: var(--forest);
+    }
+
+    .how-to {
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .how-to h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .how-to-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem 1.3rem;
+    }
+
+    .how-to-block h4 {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--olive);
+      margin-bottom: 0.2rem;
+    }
+
+    .how-to-block p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 720px) {
+      .how-to-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* QUICK ENQUIRY FORM */
+    .enquiry {
+      padding: 0 0 3.2rem;
+    }
+
+    .enquiry-inner {
+      margin-top: 0.4rem;
+      background: linear-gradient(
+        135deg,
+        rgba(215, 206, 187, 0.38),
+        rgba(247, 247, 243, 0.9)
+      );
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.7rem 1.9rem;
+      border: 1px solid rgba(215,206,187,0.8);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .enquiry-inner h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      color: var(--forest);
+      margin-bottom: 0.6rem;
+    }
+
+    .enquiry-inner p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+    }
+
+    .enquiry-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.85rem;
+    }
+
+    .form-field label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--forest);
+      font-weight: 500;
+      font-size: 0.76rem;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      border-radius: 0.8rem;
+      border: 1px solid rgba(106,127,79,0.4);
+      padding: 0.55rem 0.7rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.95);
+      outline: none;
+      transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--olive);
+      box-shadow: 0 0 0 1px rgba(106,127,79,0.4);
+      background: #fff;
+    }
+
+    .form-field textarea {
+      min-height: 110px;
+      resize: vertical;
+      grid-column: 1 / -1;
+    }
+
+    .enquiry-footer {
+      margin-top: 0.3rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-primary {
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--forest);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--olive);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .enquiry-hint {
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+      color: rgba(49,53,47,0.8);
+    }
+
+.enquiry-status {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.enquiry-status.is-success {
+  color: var(--forest);
+}
+
+.enquiry-status.is-error {
+  color: var(--error);
+}
+
+
+    @media (max-width: 900px) {
+      .enquiry-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .enquiry-footer {
+        justify-content: flex-start;
+        margin-top: 0.7rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .enquiry-form {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* FOOTER (same vibe as homepage) */
+    footer {
+      padding: 2.4rem 0 2rem;
+      background: #1f2619;
+      color: #eaeae2;
+      font-size: 0.86rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2rem;
+    }
+
+    .footer-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-address p {
+      margin-bottom: 0.2rem;
+      color: rgba(234,234,226,0.9);
+    }
+
+    .footer-address a {
+      color: #fff;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .footer-links a {
+      color: rgba(234,234,226,0.9);
+      font-size: 0.86rem;
+    }
+
+    .footer-bottom {
+      margin-top: 1.8rem;
+      border-top: 1px solid rgba(234,234,226,0.2);
+      padding-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: rgba(234,234,226,0.75);
+    }
+
+    @media (max-width: 800px) {
+      .footer-inner {grid-template-columns: 1fr; }
+      .footer-bottom {flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 58px;
+    transform: none;
+  }
+
+  .header-inner {
+    height: auto;
+      }
+    }
+  </style>
+</head>
+<body class="page">
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+     <a class="logo-wrap" href="index.html" aria-label="Trulli Colarossa Home">
+<img class="brand-logo" src="assets/logo.png" alt="Trulli Colarossa">
+  <span class="sr-only">Trulli Colarossa</span>
+</a>
+
+<nav class="main-nav">
+        <div class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </div>
+        <ul id="navList">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="our-trulli.html">Our Trulli</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="conditions.html">Conditions</a></li>
+          <li><a href="contacts.html" class="active">Contacts</a></li>
+        </ul>
+      </nav>
+
+      <a class="header-cta" href="https://qualitravel.com/trulli-colarossa/" target="_blank" rel="noopener">
+        Book your stay
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <div>
+          <div class="hero-badge">We are happy to assist</div>
+          <h1>Contact Trulli Colarossa</h1>
+          <p>
+            Whether you are planning a romantic escape, a family holiday or a stay with friends,
+            we are here to help you plan your time in Alberobello and the Itria Valley.
+          </p>
+        </div>
+       
+      </div>
+    </section>
+
+    <!-- MAIN CONTACT + MAP -->
+    <section class="contact-main">
+      <div class="container contact-layout">
+        <!-- LEFT: direct contact info -->
+        <div>
+          <div class="section-eyebrow">Direct contacts</div>
+          <h2 class="section-title">Talk to us directly</h2>
+          <p class="section-text">
+            You can reach us by phone, WhatsApp or email. We speak Italian and English and are happy
+            to help with availability, special requests or ideas for your trip.
+          </p>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <strong>Address</strong>
+              <p>
+                Contrada Colarossa 6<br>
+                Alberobello, BA 70011 · Italy
+              </p>
+              <p class="contact-note">
+                Please use this address in your GPS for an accurate route to the property.
+              </p>
+            </div>
+
+            <div class="contact-card">
+              <strong>Phone &amp; WhatsApp</strong>
+              <div class="contact-inline">
+                <span>Tel: +39 339 540 4581</span>
+                <span>Mobile: +39 324 883 9699</span>
+              </div>
+              <p class="contact-note">
+                For quicker replies, send us a WhatsApp message on
+                <span>+39 339 540 4581</span>.
+              </p>
+            </div>
+
+            <div class="contact-card">
+              <strong>Email</strong>
+              <p>
+                General enquiries:<br>
+                <a href="mailto:info@trullicolarossa.it">info@trullicolarossa.it</a>
+              </p>
+            </div>
+
+            <div class="contact-card">
+              <strong>Online booking</strong>
+              <p>
+                For live availability, rates and secure booking, please visit our page on Qualitravel.
+              </p>
+              <a class="btn-outline" href="https://qualitravel.com/trulli-colarossa/" target="_blank" rel="noopener">
+                Book via Qualitravel <span>→</span>
+              </a>
+            </div>
+
+            <div class="contact-card">
+              <strong>Reviews</strong>
+              <p>
+                Discover guest impressions and detailed reviews on Tripadvisor:
+              </p>
+              <p style="margin-top:0.25rem;">
+                <a href="https://www.tripadvisor.com/Hotel_Review-g580227-d3396339-Reviews-Trulli_Colarossa-Alberobello_Province_of_Bari_Puglia.html" target="_blank" rel="noopener">
+                  Trulli Colarossa on Tripadvisor
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: map + how to reach us -->
+        <div>
+          <div class="section-eyebrow">Location</div>
+          <h2 class="section-title">Where you will find us</h2>
+          <p class="section-text">
+            Trulli Colarossa is located in the countryside just outside Alberobello, in a quiet area
+            called Contrada Colarossa, surrounded by olive groves and traditional trulli.
+          </p>
+
+          <div class="map-card">
+            <div class="map-frame-wrap">
+              <!-- Map centered on Contrada Colarossa 6, not just Alberobello -->
+              <iframe
+                src="https://www.google.com/maps?q=Contrada+Colarossa+6,+70011+Alberobello+BA,+Italy&hl=en&z=15&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            <div class="map-caption">
+              <strong>Arriving by car:</strong> set your GPS to “Trulli Colarossa, Contrada Colarossa 6, 70011
+              Alberobello (BA)” for precise directions to the entrance and private parking area.
+            </div>
+          </div>
+
+          <div class="how-to">
+            <h3>How to reach us</h3>
+            <div class="how-to-list">
+              <div class="how-to-block">
+                <h4>By car</h4>
+                <p>
+                  From Alberobello centre, follow the SP113 towards Martina Franca and then the signs for
+                  Contrada Colarossa. Free parking is available directly at the property.
+                </p>
+              </div>
+              <div class="how-to-block">
+                <h4>By plane</h4>
+                <p>
+                  The closest airports are Bari (Karol Wojtyla) and Brindisi (Salento), both about 1 hour
+                  away by car. We can help you arrange a transfer or advise on car rental.
+                </p>
+              </div>
+              <div class="how-to-block">
+                <h4>By train</h4>
+                <p>
+                  Alberobello has a regional train station with connections from Bari and other towns
+                  in Puglia. From the station, a short taxi ride brings you to Contrada Colarossa.
+                </p>
+              </div>
+              <div class="how-to-block">
+                <h4>Check-in</h4>
+                <p>
+                  If you plan to arrive in the evening or after dark, we recommend contacting us in advance
+                  so we can share the best route and arrival instructions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENQUIRY SECTION -->
+    <section class="enquiry">
+      <div class="container">
+        <div class="enquiry-inner">
+          <div>
+            <h2>Send us a quick message</h2>
+            <p>
+              Prefer to write first? Use the form to outline your travel dates, number of guests and
+              any special requests (children, pets, occasions). We will respond as soon as possible.
+            </p>
+            <p class="enquiry-hint">
+              For urgent questions or same-day arrivals, we recommend calling or sending a WhatsApp message.
+            </p>
+          </div>
+          <div>
+            <!-- This form is only visual; you can hook it to a mail service later -->
+<form
+  class="enquiry-form"
+  action="https://formspree.io/f/xbdjdrwl"
+  method="POST"
+ id="enquiryForm">
+              <div class="form-field">
+                <label for="name">Name</label>
+<input id="name" type="text" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+<input id="email" type="email" name="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-field">
+                <label for="arrival">Arrival</label>
+                <input id="arrival" type="date" name="arrival">
+              </div>
+              <div class="form-field">
+                <label for="departure">Departure</label>
+                <input id="departure" type="date" name="departure">
+              </div>
+              <div class="form-field">
+                <label for="message">Message</label>
+<textarea id="message" name="message" placeholder="Number of guests, preferred trullo, special requests…" required></textarea>
+              </div>
+              <div class="enquiry-footer">
+  <button type="submit" class="btn-primary" id="enquirySubmit">
+    Send enquiry
+  </button>
+</div>
+
+<p class="enquiry-status" id="enquiryStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-title">Trulli Colarossa</div>
+          <div class="footer-address">
+            <p>Contrada Colarossa 6</p>
+            <p>Alberobello, BA 70011 · Italy</p>
+            <p>Phone: +39 339 540 4581 · Mobile: +39 324 883 9699</p>
+            <p>Email: <a href="mailto:info@trullicolarossa.it">info@trullicolarossa.it</a></p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <strong>Useful links</strong>
+          <a href="our-trulli.html">Our Trulli</a>
+          <a href="services.html">Services</a>
+          <a href="conditions.html">Conditions</a>
+          <a href="contacts.html">Contacts</a>
+          <a href="https://www.tripadvisor.com/Hotel_Review-g580227-d3396339-Reviews-Trulli_Colarossa-Alberobello_Province_of_Bari_Puglia.html" target="_blank" rel="noopener">
+            Read reviews on Tripadvisor
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2025 Trulli Colarossa · All rights reserved.</div>
+        
+      </div>
+    </div>
+  </footer>
+
+<script src="assets/js/main.js" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("enquiryForm");
+    const status = document.getElementById("enquiryStatus");
+    const btn = document.getElementById("enquirySubmit");
+
+    if (!form || !status || !btn) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      status.textContent = "";
+      status.className = "enquiry-status";
+
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = "Sending…";
+
+      try {
+        const res = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          form.reset();
+          status.textContent = "Thank you — your message has been sent. We will reply as soon as possible.";
+          status.classList.add("is-success");
+        } else {
+          status.textContent = "Something went wrong. Please try again, or email us at info@trullicolarossa.it.";
+          status.classList.add("is-error");
+        }
+      } catch (err) {
+        status.textContent = "Network error. Please try again, or email us at info@trullicolarossa.it.";
+        status.classList.add("is-error");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  });
+</script>
+</body>
+</html>

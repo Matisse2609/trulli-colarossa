@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Services &amp; Experiences – Trulli Colarossa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Services, facilities and tour ideas at Trulli Colarossa: pool, jacuzzi, breakfast, family services and curated experiences in Alberobello.">
+
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96.png">
+
+<!-- Android / PWA -->
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/favicon-512.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --olive: #6A7F4F;
+      --beige: #D7CEBB;
+      --soft-white: #F7F7F3;
+      --forest: #2F3A26;
+      --text-main: #31352F;
+      --text-muted: #6b6d66;
+      --accent: #B68A4A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--soft-white);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+      background-image: url("https://www.trullicolarossa.it/images/carousel/slide-pool.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(47, 58, 38, 0.9),
+        rgba(47, 58, 38, 0.55),
+        rgba(47, 58, 38, 0.16)
+      );
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 0 3.5rem;
+      margin-left: max(4vw, 3rem);
+      max-width: 640px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(215, 206, 187, 0.18);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      margin-top: 1.1rem;
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-size: clamp(2.1rem, 3vw + 1.2rem, 3.1rem);
+      line-height: 1.15;
+    }
+
+    .hero h1 span {
+      color: var(--beige);
+    }
+
+    .hero-lead {
+      margin-top: 0.9rem;
+      font-size: 0.98rem;
+      color: rgba(248, 248, 244, 0.92);
+      max-width: 32rem;
+    }
+
+    .hero-meta {
+      margin-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3rem;
+      font-size: 0.84rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(248, 248, 244, 0.85);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--beige);
+    }
+
+    .hero-actions {
+      margin-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn-primary {
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--beige);
+      color: var(--forest);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary span {
+      display: inline-block;
+      transform: translateX(0);
+      transition: transform 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      background: #e2d8c4;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-primary:hover span {
+      transform: translateX(3px);
+    }
+
+    .btn-ghost-light {
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(247,247,243,0.7);
+      background: transparent;
+      color: #f7f7f3;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ghost-light:hover {
+      background: rgba(247,247,243,0.08);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 65vh;
+        align-items: flex-end;
+      }
+
+      .hero-inner {
+        margin-left: auto;
+        margin-right: auto;
+        padding-inline: 1.5rem;
+        padding-bottom: 3rem;
+      }
+    }
+
+    /* MAIN CONTENT WRAPPER */
+    .page-main {
+      padding: 3rem 0 3.8rem;
+      background: linear-gradient(
+        180deg,
+        rgba(215, 206, 187, 0.18),
+        rgba(247, 247, 243, 1)
+      );
+    }
+
+    .breadcrumbs {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .breadcrumbs a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.9rem;
+      color: var(--forest);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-lead {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      margin-bottom: 2rem;
+    }
+
+    /* GENERIC TWO-COLUMN */
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 2.4rem;
+      align-items: flex-start;
+      margin-bottom: 3.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* BREAKFAST / INTRO AREA */
+    .lead-image {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+      margin-bottom: 1.4rem;
+    }
+
+    .intro-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* CATEGORY BLOCKS */
+    .category-block {
+      background: #fff;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(106,127,79,0.16);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.06);
+      padding: 1.1rem 1.2rem 1.15rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .category-block h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+      margin-bottom: 0.45rem;
+    }
+
+    .category-block ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .category-block ul li {
+      margin-bottom: 0.25rem;
+      padding-left: 0.9rem;
+      position: relative;
+      color: var(--text-muted);
+    }
+
+    .category-block ul li::before {
+      content: "•";
+      color: var(--olive);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .list-columns {
+      columns: 2;
+      column-gap: 1.4rem;
+    }
+
+    @media (max-width: 640px) {
+      .list-columns {
+        columns: 1;
+      }
+    }
+
+    /* BADGE */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(215, 206, 187, 0.55);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--forest);
+      margin-bottom: 0.7rem;
+    }
+
+    /* TOUR IDEAS / EXPERIENCES */
+    .tour-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .tour-card {
+      margin-top: 1.4rem;
+    }
+
+    .tour-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+    }
+
+    .tour-image {
+      border-radius: 1rem;
+      overflow: hidden;
+      margin: 0.7rem 0 0.9rem;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+    }
+
+    .tour-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .tour-card a {
+      color: var(--olive);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.4rem 0 2rem;
+      background: #1f2619;
+      color: #eaeae2;
+      font-size: 0.86rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2rem;
+    }
+
+    .footer-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-address p {
+      margin-bottom: 0.2rem;
+      color: rgba(234,234,226,0.9);
+    }
+
+    .footer-address a {
+      color: #fff;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .footer-links a {
+      color: rgba(234,234,226,0.9);
+      font-size: 0.86rem;
+    }
+
+    .footer-bottom {
+      margin-top: 1.8rem;
+      border-top: 1px solid rgba(234,234,226,0.2);
+      padding-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: rgba(234,234,226,0.75);
+    }
+
+@media (max-width: 800px) {
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+  .brand-logo { height: 58px; transform: none; }
+  .header-inner { height: auto; }
+}
+  </style>
+</head>
+<body class="page">
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a class="logo-wrap" href="index.html#top" aria-label="Trulli Colarossa Home">
+<img class="brand-logo" src="assets/logo.png" alt="Trulli Colarossa">
+  <span class="sr-only">Trulli Colarossa</span>
+</a>
+
+<nav class="main-nav">
+        <div class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </div>
+        <ul id="navList">
+          <li><a href="index.html#top">Home</a></li>
+          <li><a href="our-trulli.html">Our Trulli</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="conditions.html">Conditions</a></li>
+          <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+      </nav>
+
+      <a class="header-cta" href="https://qualitravel.com/trulli-colarossa/" target="_blank" rel="noopener">
+        Book your stay
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Services &amp; facilities
+      </div>
+
+      <h1>
+        Services &amp; <span>Experiences</span>
+      </h1>
+
+      <p class="hero-lead">
+        From WiFi and free parking to pool, jacuzzi and curated local experiences, Trulli Colarossa
+        offers services designed for couples, families and friends travelling together.
+      </p>
+
+      <div class="hero-meta">
+        <span><span class="hero-meta-dot"></span> Pool &amp; jacuzzi</span>
+        <span><span class="hero-meta-dot"></span> Breakfast &amp; bar on request</span>
+        <span><span class="hero-meta-dot"></span> Family-friendly stays</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn-primary" href="our-trulli.html">
+          Discover our trulli <span>→</span>
+        </a>
+        <a class="btn-ghost-light" href="https://qualitravel.com/trulli-colarossa/" target="_blank" rel="noopener">
+          Check availability
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-main">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> · Services
+      </div>
+
+      <div class="section-eyebrow">Your stay</div>
+      <h2 class="section-title">What we offer at Trulli Colarossa</h2>
+      <p class="section-lead">
+        A stay in a trullo means slow mornings, breakfast outdoors when the weather allows and
+        time to enjoy the countryside. Below is a clear overview of the main services, facilities
+        and experiences available during your stay.
+      </p>
+
+      <!-- SECTION 1: ESTATE COMFORTS -->
+      <section class="two-column">
+        <div>
+          <div class="lead-image">
+            <img src="https://www.trullicolarossa.it/images/breakfast.jpg" alt="Breakfast at Trulli Colarossa">
+          </div>
+          <p class="intro-text">
+            Each trullo is independent and fully equipped, but all guests share the same access to
+            the pool, jacuzzi, gardens and common areas around the estate. It’s a place for slow
+            breakfasts, quiet afternoons by the water and evenings in your own private trullo.
+          </p>
+        </div>
+
+        <div>
+          <div class="category-block">
+            <h3>Internet services</h3>
+            <ul>
+              <li>Free WiFi throughout the property</li>
+            </ul>
+          </div>
+
+          <div class="category-block">
+            <h3>Parking</h3>
+            <ul>
+              <li>Free on site parking</li>
+            </ul>
+          </div>
+
+          <div class="category-block">
+            <h3>Outdoor spaces</h3>
+            <ul class="list-columns">
+              <li>Pool</li>
+              <li>Jacuzzi</li>
+              <li>Outdoor furniture</li>
+              <li>Barbecue</li>
+              <li>Terrace</li>
+              <li>Garden</li>
+              <li>Children playground</li>
+            </ul>
+          </div>
+
+          <div class="category-block">
+            <h3>Animals</h3>
+            <ul>
+              <li>Pets welcome on request (may incur an additional charge)</li>
+            </ul>
+          </div>
+
+          <div class="category-block">
+            <h3>Food &amp; drink</h3>
+            <ul>
+              <li>Breakfast in the room (available upon request with charge)</li>
+              <li>Bar service (available upon request with charge)</li>
+            </ul>
+          </div>
+
+          <div class="category-block">
+            <h3>Travel with family &amp; friends</h3>
+            <ul>
+              <li>Family rooms available and suitable for parties between friends</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: PRACTICAL & FAMILY SERVICES + EXPERIENCES -->
+      <section class="two-column">
+        <!-- LEFT: services -->
+        <div>
+          <div class="section-eyebrow">For longer stays</div>
+          <h2 class="section-title" style="font-size:1.45rem; margin-bottom:0.8rem;">
+            Transport, cleaning &amp; extra services
+          </h2>
+
+          <div class="category-block">
+            <h3>Transports</h3>
+            <ul class="list-columns">
+              <li>Shuttle service (available upon request with charge)</li>
+              <li>Airport shuttle (available on request for a fee)</li>
+              <li>Rent a car (available upon request with charge)</li>
+              <li>Bicycle rental (available on request for a fee)</li>
+            </ul>
+          </div>
+
+          <div class="category-block">
+            <h3>Activities</h3>
+            <ul class="list-columns">
+              <li>Bicycle tours</li>
+              <li>Boat excursions (on request, with charge)</li>
+              <li>Horseback riding (on request, with charge)</li>
+              <li>Guided tours (on request, with charge)</li>
+              <li>Visits of ancient “masserie” (on request, with charge)</li>
+              <li>Visits of oil mills and cellars (available on request, some free of charge)</li>
+            </ul>
+          </div>
+
+          <div class="category-block">
+            <h3>Cleaning services</h3>
+            <ul>
+              <li>Bathroom linens change every 2/3 days</li>
+              <li>Bed linens change every 3/4 days (for weekly stays)</li>
+            </ul>
+          </div>
+
+          <div class="category-block">
+            <h3>Other services</h3>
+            <ul>
+              <li>Baby sitter (available upon request with charge)</li>
+              <li>Dog sitter (available upon request with charge)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- RIGHT: tour ideas with photos -->
+        <div>
+          <span class="badge">Tour ideas</span>
+          <h2 class="section-title" style="font-size:1.6rem; margin-bottom:0.5rem;">
+            Wine, olive oil &amp; masserie
+          </h2>
+          <p class="tour-intro">
+            We are happy to suggest experiences that bring you closer to the flavours and landscapes
+            of Puglia. Below are some ideas we can help you organise during your stay.
+          </p>
+
+          <div class="tour-card">
+            <h3>Wine Museum Cantina Albea</h3>
+            <div class="tour-image">
+              <img src="https://www.trullicolarossa.it/images/albea.jpg" alt="Cantina Albea">
+            </div>
+            <p>
+              The extensive collection of ancient agricultural tools includes pieces which would have
+              been in use from pre-Christian times until relatively recently. Together with photographs
+              and information boards, they guide visitors through the evolution of winemaking into the
+              refined techniques used today.
+            </p>
+            <p style="margin-top:0.4rem; font-size:0.9rem;">
+              Website:
+              <a href="http://www.albeavini.com/" target="_blank" rel="noopener">www.albeavini.com</a>
+            </p>
+          </div>
+
+          <div class="tour-card">
+            <h3>Oil Mill Salamida</h3>
+            <div class="tour-image">
+              <img src="https://www.trullicolarossa.it/images/frantoio-salamida.jpg" alt="Oleificio Salamida">
+            </div>
+            <p>
+              Oleificio Salamida, a family-run farm located among the trulli of Alberobello, produces
+              high quality Extra Virgin Olive Oil, 100% Italian, using exclusively Apulian olives.
+            </p>
+          </div>
+
+          <div class="tour-card">
+            <h3>Masseria Caramanna</h3>
+            <div class="tour-image">
+              <img src="https://www.trullicolarossa.it/images/Masseria-Caramanna.jpg" alt="Masseria Caramanna">
+            </div>
+            <p>
+              A long and narrow road leads to one of the most important rural complexes of the area.
+              Announced by two superb columns, Masseria Caramanna sits in a majestic location and is
+              introduced by an airy forecourt surrounded by countryside.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-title">Trulli Colarossa</div>
+          <div class="footer-address">
+            <p>Contrada Colarossa 6</p>
+            <p>Alberobello, BA 70011 · Italy</p>
+            <p>Phone: +39 339 540 4581 · Mobile: +39 324 883 9699</p>
+            <p>Email: <a href="mailto:info@trullicolarossa.it">info@trullicolarossa.it</a></p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <strong>Useful links</strong>
+          <a href="our-trulli.html">Our Trulli</a>
+          <a href="services.html">Services</a>
+          <a href="conditions.html">Conditions</a>
+          <a href="contacts.html">Contacts</a>
+          <a href="https://www.tripadvisor.com/Hotel_Review-g580227-d3396339-Reviews-Trulli_Colarossa-Alberobello_Province_of_Bari_Puglia.html" target="_blank" rel="noopener">
+            Read reviews on Tripadvisor
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2025 Trulli Colarossa · All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

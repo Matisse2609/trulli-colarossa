@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Trulli – Trulli Colarossa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Overview of the four trulli accommodations at Trulli Colarossa in Alberobello, Puglia.">
+
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96.png">
+
+<!-- Android / PWA -->
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/favicon-512.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --olive: #6A7F4F;            /* Olive Green */
+      --beige: #D7CEBB;            /* Limestone Beige */
+      --soft-white: #F7F7F3;       /* Soft White */
+      --forest: #2F3A26;           /* Dark Forest Green */
+      --text-main: #31352F;
+      --text-muted: #6b6d66;
+      --accent: #B68A4A;           /* warm golden accent */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--soft-white);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    /* HEADER (same as other new pages) */
+
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 3.4rem 0 2.8rem;
+      background: radial-gradient(circle at top left, rgba(215,206,187,0.45), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(106,127,79,0.12), transparent 55%);
+      border-bottom: 1px solid rgba(215, 206, 187, 0.6);
+    }
+
+    .page-hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    .page-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.78rem;
+      color: var(--olive);
+      margin-bottom: 0.4rem;
+    }
+
+    .page-title {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-lead {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+    }
+
+    .page-hero-note {
+      background: #fff;
+      border-radius: 1.3rem;
+      padding: 1.2rem 1.4rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(215, 206, 187, 0.75);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .page-hero-note strong {
+      color: var(--forest);
+    }
+
+    @media (max-width: 900px) {
+      .page-hero-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* TRULLI GRID */
+    .trulli-section {
+      padding: 3.2rem 0 3.5rem;
+    }
+
+    .trulli-intro {
+      margin-bottom: 1.8rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .trulli-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .trulli-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .trullo-card {
+      background: #fff;
+      border-radius: 1.4rem;
+      overflow: hidden;
+      border: 1px solid rgba(106, 127, 79, 0.16);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .trullo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.12);
+      border-color: rgba(106, 127, 79, 0.3);
+    }
+
+    .trullo-img-wrap {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .trullo-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.4s ease;
+    }
+
+    .trullo-card:hover .trullo-img-wrap img {
+      transform: scale(1.07);
+    }
+
+    .trullo-tag {
+      position: absolute;
+      bottom: 0.9rem;
+      left: 0.9rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(47, 58, 38, 0.82);
+      color: #f7f7f3;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .trullo-body {
+      padding: 1.35rem 1.35rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .trullo-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.7rem;
+      align-items: baseline;
+    }
+
+    .trullo-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      color: var(--forest);
+    }
+
+    .trullo-meta {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .trullo-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .trullo-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .trullo-pill {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(215, 206, 187, 0.35);
+    }
+
+    .trullo-footer {
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .trullo-link {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+      color: var(--olive);
+    }
+
+    .trullo-link span {
+      display: inline-block;
+      transform: translateX(0);
+      transition: transform 0.18s ease;
+    }
+
+    .trullo-card:hover .trullo-link span {
+      transform: translateX(3px);
+    }
+
+    .trullo-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.4rem 0 2rem;
+      background: #1f2619;
+      color: #eaeae2;
+      font-size: 0.86rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2rem;
+    }
+
+    .footer-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-address p {
+      margin-bottom: 0.2rem;
+      color: rgba(234,234,226,0.9);
+    }
+
+    .footer-address a {
+      color: #fff;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .footer-links a {
+      color: rgba(234,234,226,0.9);
+      font-size: 0.86rem;
+    }
+
+    .footer-bottom {
+      margin-top: 1.8rem;
+      border-top: 1px solid rgba(234,234,226,0.2);
+      padding-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: rgba(234,234,226,0.75);
+    }
+
+    @media (max-width: 900px) {
+      .page-hero {
+        padding-top: 3rem;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 58px;
+    transform: none;
+  }
+
+  .header-inner {
+    height: auto;
+      }
+    }
+  </style>
+</head>
+<body class="page">
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+     <a class="logo-wrap" href="index.html#top" aria-label="Trulli Colarossa Home">
+  <img class="brand-logo" src="assets/logo.png" alt="Trulli Colarossa">
+  <span class="sr-only">Trulli Colarossa</span>
+</a>
+
+<nav class="main-nav">
+        <div class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </div>
+        <ul id="navList">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="our-trulli.html" class="active">Our Trulli</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="conditions.html">Conditions</a></li>
+          <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+      </nav>
+
+      <a class="header-cta" href="https://qualitravel.com/trulli-colarossa/" target="_blank" rel="noopener">
+        Book your stay
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <div>
+        <div class="page-eyebrow">Our trulli in Alberobello</div>
+        <h1 class="page-title">Four authentic trulli, four different ways to stay</h1>
+        <p class="page-lead">
+          From the former farmer’s residence to the old stable and an intimate suite with private garden,
+          each trullo has its own history, character and layout – all restored with care and natural materials.
+        </p>
+      </div>
+      <div class="page-hero-note">
+        <strong>Perfect for couples, families &amp; friends:</strong><br>
+        Choose the trullo that fits your way of travelling. All guests share the same quiet countryside
+        setting, pool &amp; jacuzzi.
+      </div>
+    </div>
+  </section>
+
+  <!-- TRULLI GRID -->
+  <section class="trulli-section">
+    <div class="container">
+      <p class="trulli-intro">
+        Below you will find a short overview of each trullo. Click on “View details” to see more
+        photos, history, layout and supplies. Then contact us or book via Qualitravel.
+      </p>
+
+      <div class="trulli-grid">
+        <!-- Gelsomino -->
+        <article class="trullo-card">
+          <div class="trullo-img-wrap">
+            <img src="https://www.trullicolarossa.it/images/gelsomino_home.jpg" alt="Trullo Gelsomino exterior">
+            <div class="trullo-tag">For 2 guests</div>
+          </div>
+          <div class="trullo-body">
+            <div class="trullo-title-row">
+              <h2 class="trullo-name">Trullo Gelsomino</h2>
+              <div class="trullo-meta">35 m² · 1 bedroom · 1 bathroom</div>
+            </div>
+            <p class="trullo-desc">
+              Once the farmer’s residence, Gelsomino preserves its original charm and details such as the
+              oven used to bake traditional bread. Ideal for a couple, with bedroom, bathroom, living
+              room with equipped kitchenette and private veranda.
+            </p>
+            <div class="trullo-features">
+              <span class="trullo-pill">Cosy for 2</span>
+              <span class="trullo-pill">Equipped kitchen</span>
+              <span class="trullo-pill">Private veranda</span>
+            </div>
+            <div class="trullo-footer">
+              <a href="trullo-gelsomino.html" class="trullo-link">
+                View details <span>→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Rosa -->
+        <article class="trullo-card">
+          <div class="trullo-img-wrap">
+            <img src="https://www.trullicolarossa.it/images/rosa-home.jpg" alt="Trullo Rosa exterior">
+            <div class="trullo-tag">For 2–5 guests</div>
+          </div>
+          <div class="trullo-body">
+            <div class="trullo-title-row">
+              <h2 class="trullo-name">Trullo Rosa</h2>
+              <div class="trullo-meta">80 m² · 2 bedrooms + alcove</div>
+            </div>
+            <p class="trullo-desc">
+              Once the stable of the complex and home to eight cattle, Rosa is now an 80 m² dwelling
+              ideal for families or small groups. It offers two independent bedrooms, a living room
+              with an extra alcove bed, fully equipped kitchen and private veranda.
+            </p>
+            <div class="trullo-features">
+              <span class="trullo-pill">Up to 5 guests</span>
+              <span class="trullo-pill">Family-friendly layout</span>
+              <span class="trullo-pill">Private veranda</span>
+            </div>
+            <div class="trullo-footer">
+              <a href="trullo-rosa.html" class="trullo-link">
+                View details <span>→</span>
+              </a>
+       
+            </div>
+          </div>
+        </article>
+
+        <!-- Viola -->
+        <article class="trullo-card">
+          <div class="trullo-img-wrap">
+            <img src="https://www.trullicolarossa.it/images/viola-home.jpg" alt="Trullo Viola exterior">
+            <div class="trullo-tag">For 2–4 guests</div>
+          </div>
+          <div class="trullo-body">
+            <div class="trullo-title-row">
+              <h2 class="trullo-name">Trullo Viola</h2>
+              <div class="trullo-meta">50 m² · 1 bedroom + alcove</div>
+            </div>
+            <p class="trullo-desc">
+              The tallest trullo of the property, originally used to store the products of the earth.
+              After careful restoration, it now offers a double bedroom, living and dining area with
+              two single beds in an alcove, fully equipped kitchen, bathroom and private veranda.
+            </p>
+            <div class="trullo-features">
+              <span class="trullo-pill">Tallest trullo</span>
+              <span class="trullo-pill">Fireplace</span>
+              <span class="trullo-pill">Ideal for couples + children</span>
+            </div>
+            <div class="trullo-footer">
+              <a href="trullo-viola.html" class="trullo-link">
+                View details <span>→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Suite Felisia -->
+        <article class="trullo-card">
+          <div class="trullo-img-wrap">
+            <img src="https://www.trullicolarossa.it/images/felisia-home.jpg" alt="Suite Felisia exterior">
+            <div class="trullo-tag">Suite for 2 guests</div>
+          </div>
+          <div class="trullo-body">
+            <div class="trullo-title-row">
+              <h2 class="trullo-name">Suite Felisia</h2>
+              <div class="trullo-meta">Trullo suite · Private garden</div>
+            </div>
+            <p class="trullo-desc">
+              An authentic trullo formerly used as tool storage and farmer’s shelter, now transformed
+              into an intimate suite with bedroom, living room, kitchen, bathroom and a completely
+              private garden – just 100 m from the main complex.
+            </p>
+            <div class="trullo-features">
+              <span class="trullo-pill">Private garden</span>
+              <span class="trullo-pill">Solarium area</span>
+              <span class="trullo-pill">Perfect for couples</span>
+            </div>
+            <div class="trullo-footer">
+              <a href="suite-felisia.html" class="trullo-link">
+                View details <span>→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-title">Trulli Colarossa</div>
+          <div class="footer-address">
+            <p>Contrada Colarossa 6</p>
+            <p>Alberobello, BA 70011 · Italy</p>
+            <p>Phone: +39 339 540 4581 · Mobile: +39 324 883 9699</p>
+            <p>Email: <a href="mailto:info@trullicolarossa.it">info@trullicolarossa.it</a></p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <strong>Useful links</strong>
+          <a href="our-trulli.html">Our Trulli</a>
+          <a href="services.html">Services</a>
+          <a href="conditions.html">Conditions</a>
+          <a href="contacts.html">Contacts</a>
+          <a href="https://www.tripadvisor.com/Hotel_Review-g580227-d3396339-Reviews-Trulli_Colarossa-Alberobello_Province_of_Bari_Puglia.html" target="_blank" rel="noopener">
+            Read reviews on Tripadvisor
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2025 Trulli Colarossa · All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
